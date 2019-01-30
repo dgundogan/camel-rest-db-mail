@@ -45,6 +45,8 @@ public class RestCamelRoute extends RouteBuilder{
                     .setHeader(Exchange.HTTP_URI,simple("https://restcountries.eu/rest/v2/alpha/${header.countryId}"))
                     .to("https://restcountries.eu/rest/v2/alpha/us").convertBodyTo(String.class)
                     .log("The rest api response is ${body}")
+                    .removeHeader(Exchange.HTTP_URI)
+                .setHeader(Exchange.HTTP_METHOD,constant("POST"))
                 .to("{{toRoute}}");
 
         }

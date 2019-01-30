@@ -52,7 +52,7 @@ mailto: xyz@gmail.com
 mailFrom: xyz@gmail.com
 message:   Hello from DEV Profile
 fromRoute: timer:restRoute?period=10s
-toRoute:  log:?level=INFO&showBody=true
+toRoute:  http://localhost:8081/country
 healthRoute: timer:health?period=10s
 dbNode: jdbc:dataSource
 selectNode: sql:select * from country where country_code = :#countryId?dataSource=#dataSource
